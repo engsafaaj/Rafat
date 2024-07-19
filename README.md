@@ -1,4 +1,4 @@
-##Use Below query to default user
+##Use Below query to add default user
 
 USE [RafatDB]
 GO
