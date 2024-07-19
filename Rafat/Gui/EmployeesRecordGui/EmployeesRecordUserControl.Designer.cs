@@ -1,6 +1,6 @@
-﻿namespace Rafat.Gui.SalaryRateGui
+﻿namespace Rafat.Gui.EmployeesRecordGui
 {
-    partial class SalaryRateUserControl
+    partial class EmployeesRecordUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,8 +35,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             flowLayoutPanelNavBar = new FlowLayoutPanel();
-            buttonAdd = new Button();
-            buttonEdit = new Button();
             buttonDelete = new Button();
             buttonExportAll = new Button();
             buttonExportDataGridView = new Button();
@@ -64,8 +62,6 @@
             // flowLayoutPanelNavBar
             // 
             flowLayoutPanelNavBar.AutoScroll = true;
-            flowLayoutPanelNavBar.Controls.Add(buttonAdd);
-            flowLayoutPanelNavBar.Controls.Add(buttonEdit);
             flowLayoutPanelNavBar.Controls.Add(buttonDelete);
             flowLayoutPanelNavBar.Controls.Add(buttonExportAll);
             flowLayoutPanelNavBar.Controls.Add(buttonExportDataGridView);
@@ -77,37 +73,11 @@
             flowLayoutPanelNavBar.Size = new Size(1062, 67);
             flowLayoutPanelNavBar.TabIndex = 1;
             // 
-            // buttonAdd
-            // 
-            buttonAdd.Image = Properties.Resources.icons8_add_32px;
-            buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAdd.Location = new Point(949, 8);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(100, 50);
-            buttonAdd.TabIndex = 0;
-            buttonAdd.Text = "     اضافة";
-            toolTip1.SetToolTip(buttonAdd, "اضافة بيانات جديدة");
-            buttonAdd.UseVisualStyleBackColor = true;
-            buttonAdd.Click += buttonAdd_Click;
-            // 
-            // buttonEdit
-            // 
-            buttonEdit.Image = Properties.Resources.icons8_edit_32px;
-            buttonEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonEdit.Location = new Point(843, 8);
-            buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(100, 50);
-            buttonEdit.TabIndex = 1;
-            buttonEdit.Text = "     تعديل";
-            toolTip1.SetToolTip(buttonEdit, "تعديل السطر الحالي");
-            buttonEdit.UseVisualStyleBackColor = true;
-            buttonEdit.Click += buttonEdit_Click;
-            // 
             // buttonDelete
             // 
             buttonDelete.Image = Properties.Resources.icons8_Delete_32px;
             buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDelete.Location = new Point(737, 8);
+            buttonDelete.Location = new Point(949, 8);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(100, 50);
             buttonDelete.TabIndex = 2;
@@ -120,7 +90,7 @@
             // 
             buttonExportAll.Image = Properties.Resources.icons8_microsoft_excel_2019_32px;
             buttonExportAll.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExportAll.Location = new Point(631, 8);
+            buttonExportAll.Location = new Point(843, 8);
             buttonExportAll.Name = "buttonExportAll";
             buttonExportAll.Size = new Size(100, 50);
             buttonExportAll.TabIndex = 3;
@@ -133,7 +103,7 @@
             // 
             buttonExportDataGridView.Image = Properties.Resources.icons8_Microsoft_Excel_32px;
             buttonExportDataGridView.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExportDataGridView.Location = new Point(525, 8);
+            buttonExportDataGridView.Location = new Point(737, 8);
             buttonExportDataGridView.Name = "buttonExportDataGridView";
             buttonExportDataGridView.Size = new Size(100, 50);
             buttonExportDataGridView.TabIndex = 5;
@@ -146,7 +116,7 @@
             // 
             panel1.Controls.Add(textBoxSearch);
             panel1.Controls.Add(buttonSearch);
-            panel1.Location = new Point(171, 8);
+            panel1.Location = new Point(383, 8);
             panel1.Name = "panel1";
             panel1.Size = new Size(348, 50);
             panel1.TabIndex = 4;
@@ -330,7 +300,7 @@
             labelNofOfItmes.TabIndex = 9;
             labelNofOfItmes.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // SalaryRateUserControl
+            // EmployeesRecordUserControl
             // 
             AutoScaleDimensions = new SizeF(11F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -341,7 +311,7 @@
             Controls.Add(flowLayoutPanelNavBar);
             Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 6, 4, 6);
-            Name = "SalaryRateUserControl";
+            Name = "EmployeesRecordUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1062, 606);
             flowLayoutPanelNavBar.ResumeLayout(false);
@@ -356,8 +326,6 @@
         #endregion
 
         private FlowLayoutPanel flowLayoutPanelNavBar;
-        private Button buttonAdd;
-        private Button buttonEdit;
         private Button buttonDelete;
         private Button buttonExportAll;
         private Panel panel1;

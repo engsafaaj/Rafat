@@ -1,6 +1,6 @@
-﻿namespace Rafat.Gui.SalaryRateGui
+﻿namespace Rafat.Gui.BookThanksGui
 {
-    partial class SalaryRateUserControl
+    partial class BookThankUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -330,7 +330,7 @@
             labelNofOfItmes.TabIndex = 9;
             labelNofOfItmes.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // SalaryRateUserControl
+            // BookThankUserControl
             // 
             AutoScaleDimensions = new SizeF(11F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -341,7 +341,7 @@
             Controls.Add(flowLayoutPanelNavBar);
             Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 6, 4, 6);
-            Name = "SalaryRateUserControl";
+            Name = "BookThankUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1062, 606);
             flowLayoutPanelNavBar.ResumeLayout(false);

@@ -106,6 +106,7 @@
             buttonEmployees.Text = "   الموظفين";
             toolTip1.SetToolTip(buttonEmployees, "إدارة الموظفين");
             buttonEmployees.UseVisualStyleBackColor = true;
+            buttonEmployees.Click += buttonEmployees_Click;
             // 
             // buttonRetirment
             // 
@@ -173,6 +174,7 @@
             buttonSettings.Text = "     الاعدادات";
             toolTip1.SetToolTip(buttonSettings, "ضبط الاعدادات العامة للبرنامج");
             buttonSettings.UseVisualStyleBackColor = true;
+            buttonSettings.Click += buttonSettings_Click;
             // 
             // buttonHelp
             // 

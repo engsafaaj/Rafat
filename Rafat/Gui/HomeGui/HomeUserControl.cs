@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rafat.Code.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,8 @@ namespace Rafat.Gui.HomeGui
         public HomeUserControl()
         {
             InitializeComponent();
+            labelWelcome.Text = $"مرحبا بك {LocalUser.FullName}";
+            labelCompnayName.Text = Properties.Settings.Default.CompanyName;
         }
 
         public static HomeUserControl Instance()

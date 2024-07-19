@@ -98,7 +98,7 @@ namespace Rafat.Data.EF
 
         public bool IsCanConnect()
         {
-            return db.Database.CanConnect();
+            db = new DBContext(); return db.Database.CanConnect();
         }
 
         public List<Users> SearchAll(string searchIteam)

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rafat.Data.EF;
 
@@ -11,9 +12,11 @@ using Rafat.Data.EF;
 namespace Rafat.Data.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20240706070645_AddBookThankTable")]
+    partial class AddBookThankTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,77 +128,6 @@ namespace Rafat.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("Rafat.Core.EmployeesRecords", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("AddedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CurrentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CurrentDegree")
-                        .HasColumnType("int");
-
-                    b.Property<float>("CurrentSalary")
-                        .HasColumnType("real");
-
-                    b.Property<int>("CurrentStage")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EmpState")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EmployeesId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("JobTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LastPromotionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("NextDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("NextDegree")
-                        .HasColumnType("int");
-
-                    b.Property<float>("NextSalary")
-                        .HasColumnType("real");
-
-                    b.Property<int>("NextStage")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UsersId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmployeesId");
-
-                    b.ToTable("EmployeesRecords");
                 });
 
             modelBuilder.Entity("Rafat.Core.Roles", b =>
@@ -353,17 +285,6 @@ namespace Rafat.Data.Migrations
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("Rafat.Core.EmployeesRecords", b =>
-                {
-                    b.HasOne("Rafat.Core.Employees", "Employees")
-                        .WithMany("EmployeesRecords")
-                        .HasForeignKey("EmployeesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employees");
-                });
-
             modelBuilder.Entity("Rafat.Core.Roles", b =>
                 {
                     b.HasOne("Rafat.Core.Users", "Users")
@@ -378,8 +299,6 @@ namespace Rafat.Data.Migrations
             modelBuilder.Entity("Rafat.Core.Employees", b =>
                 {
                     b.Navigation("BookThanks");
-
-                    b.Navigation("EmployeesRecords");
                 });
 
             modelBuilder.Entity("Rafat.Core.Users", b =>

@@ -181,6 +181,16 @@ namespace Rafat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_import_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_import_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_microsoft_excel_2019_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_microsoft_excel_2019_32px", resourceCulture);
@@ -291,6 +301,16 @@ namespace Rafat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_200px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_user_200px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_users_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_users_32px", resourceCulture);
@@ -304,6 +324,16 @@ namespace Rafat.Properties {
         internal static System.Drawing.Bitmap Loading {
             get {
                 object obj = ResourceManager.GetObject("Loading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logingif {
+            get {
+                object obj = ResourceManager.GetObject("logingif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

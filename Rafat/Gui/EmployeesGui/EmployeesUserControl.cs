@@ -16,41 +16,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Rafat.Gui.SalaryRateGui
+namespace Rafat.Gui.EmployeesGui
 {
-    public partial class SalaryRateUserControl : UserControl
+    public partial class EmployeesUserControl : UserControl
     {
-        private static SalaryRateUserControl? salaryRateUserControl;
-        private AddSalaryRateForm addSalaryRateForm;
+        private static EmployeesUserControl? employeesUserControl;
+        private AddEmployeesForm addEmployeesForm;
         private static Main _main;
-        private IDataHelper<Core.SalaryRate> dataHelper;
-        private List<Core.SalaryRate> data;
+        private IDataHelper<Core.Employees> dataHelper;
+        private List<Core.Employees> data;
         private List<int> IdDeleteList;
-        public SalaryRateUserControl()
+        public EmployeesUserControl()
         {
             InitializeComponent();
-            dataHelper = new SalaryRateEF();
-            data = new List<Core.SalaryRate>();
+            dataHelper = new EmployeesEF();
+            data = new List<Core.Employees>();
             IdDeleteList = new List<int>();
             LoadData();
         }
 
-        public static SalaryRateUserControl Instance(Main main)
+        public static EmployeesUserControl Instance(Main main)
         {
             _main = main;
-            return salaryRateUserControl ?? (salaryRateUserControl = new SalaryRateUserControl());
+            return employeesUserControl ?? (employeesUserControl = new EmployeesUserControl());
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        public void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (addSalaryRateForm == null || addSalaryRateForm.IsDisposed)
+            if (addEmployeesForm == null || addEmployeesForm.IsDisposed)
             {
-                addSalaryRateForm = new AddSalaryRateForm(_main, 0, this);
-                addSalaryRateForm.Show();
+                addEmployeesForm = new AddEmployeesForm(_main, 0, this);
+                addEmployeesForm.Show();
             }
             else
             {
-                addSalaryRateForm.Focus();
+                addEmployeesForm.Focus();
             }
 
 
@@ -83,8 +83,8 @@ namespace Rafat.Gui.SalaryRateGui
                                 foreach (int Id in IdDeleteList)
                                 {
                                     await Task.Run(() => dataHelper.Delete(Id));
-                                    SystemRecordHelper.Add("حذف درجة",
-                   $"تم حذف الدرجة حالي يحمل الرقم التعريفي {Id.ToString()}");
+                                    SystemRecordHelper.Add("حذف موظف",
+                   $"تم حذف موظف حالي الذي يحمل الرقم التعريفي {Id.ToString()}");
                                 }
                                 ToastHelper.ShowDeleteToast();
                                 LoadData();
@@ -311,33 +311,45 @@ namespace Rafat.Gui.SalaryRateGui
         private void SetColumns()
         {
             dataGridView1.Columns[0].HeaderCell.Value = "المعرف";
-            dataGridView1.Columns[1].HeaderCell.Value = "الدرجة";
-            dataGridView1.Columns[2].HeaderCell.Value = "الراتب الاسمي";
-            dataGridView1.Columns[3].HeaderCell.Value = "العلاوة السنوية";
-            dataGridView1.Columns[4].HeaderCell.Value = "سنوات الترفيع";  
+            dataGridView1.Columns[1].HeaderCell.Value = "الاسم الكامل";
+            dataGridView1.Columns[1].Width = 150;
+            dataGridView1.Columns[2].HeaderCell.Value = "العنوان الوظيفي";
+            dataGridView1.Columns[3].HeaderCell.Value = "الحالة";
+            dataGridView1.Columns[4].Visible = false;
+
+            dataGridView1.Columns[5].HeaderCell.Value = "درجة-ح";
+            dataGridView1.Columns[6].HeaderCell.Value = "مرحلة-ح";
+            dataGridView1.Columns[7].HeaderCell.Value = "راتب-ح";
+            dataGridView1.Columns[8].HeaderCell.Value = "التاريخ-ح";
+
+            dataGridView1.Columns[9].HeaderCell.Value = "درجة-ق";
+            dataGridView1.Columns[10].HeaderCell.Value = "مرحلة-ق";
+            dataGridView1.Columns[11].HeaderCell.Value = "راتب-ق";
+            dataGridView1.Columns[12].HeaderCell.Value = "التاريخ-ق";
 
             // Visible of Columns
-            dataGridView1.Columns[5].Visible = false;
-           
-
+            dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[14].Visible = false;
+            dataGridView1.Columns[15].Visible = false;
+            dataGridView1.Columns[16].Visible = false;
 
         }
 
         private void Edit()
         {
             // Check Data if not empty
-            if (!dgvHelper.IsEmpty(dataGridView1) && dataGridView1.CurrentRow.Selected==true)
+            if (!dgvHelper.IsEmpty(dataGridView1))
             {
                 // Get Id
                 int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                if (addSalaryRateForm == null || addSalaryRateForm.IsDisposed)
+                if (addEmployeesForm == null || addEmployeesForm.IsDisposed)
                 {
-                    addSalaryRateForm = new AddSalaryRateForm(_main, Id, this);
-                    addSalaryRateForm.Show();
+                    addEmployeesForm = new AddEmployeesForm(_main, Id, this);
+                    addEmployeesForm.Show();
                 }
                 else
                 {
-                    addSalaryRateForm.Focus();
+                    addEmployeesForm.Focus();
                 }
             }
             else
@@ -433,12 +445,12 @@ namespace Rafat.Gui.SalaryRateGui
         private void buttonExportDataGridView_Click(object sender, EventArgs e)
         {
             // Get Data
-            var data = (List<Core.SalaryRate>)dataGridView1.DataSource;
+            var data = (List<Core.Employees>)dataGridView1.DataSource;
             ExportExcel(data);
 
         }
 
-        private void ExportExcel(List<Core.SalaryRate> data)
+        private void ExportExcel(List<Core.Employees> data)
         {
             // Define Data Table
             DataTable dataTable = new DataTable();
@@ -453,7 +465,7 @@ namespace Rafat.Gui.SalaryRateGui
             dataTable = arrangedDataTable(dataTable);
 
             // Send to export
-            ExcelHelper.Export(dataTable, "SalaryRate");
+            ExcelHelper.Export(dataTable, "Employees");
         }
         private DataTable arrangedDataTable(DataTable dataTable)
         {

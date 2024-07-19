@@ -23,12 +23,12 @@ namespace Rafat
         // Test
         private void SetRoles()
         {
-            Code.Models.LocalUser.UserId = "1111235";
-            Code.Models.LocalUser.Id = 1;
-            Code.Models.LocalUser.Role = "Admin";
-            Code.Models.LocalUser.FullName = "Safaa Jassim";
-            Code.Models.LocalUser.UserName = "Safaa";
-
+            /* Code.Models.LocalUser.UserId = "1111235";
+             Code.Models.LocalUser.Id = 1;
+             Code.Models.LocalUser.Role = "Admin";
+             Code.Models.LocalUser.FullName = "Safaa Jassim";
+             Code.Models.LocalUser.UserName = "Safaa";
+ */
         }
         private void SetScreenState(bool IsMax)
         {
@@ -45,6 +45,7 @@ namespace Rafat
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveWindowStateSettings();
+            Application.Exit();
         }
 
         private void SaveWindowStateSettings()
@@ -82,6 +83,18 @@ namespace Rafat
         {
             pageHelper.SetPage(Gui.SalaryRateGui.SalaryRateUserControl.Instance(this));
 
+        }
+
+        private void buttonEmployees_Click(object sender, EventArgs e)
+        {
+            pageHelper.SetPage(Gui.EmployeesGui.EmployeesUserControl.Instance(this));
+
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            Gui.SettingsGui.SettingForm settingForm = new Gui.SettingsGui.SettingForm();
+            settingForm.Show();
         }
     }
 }

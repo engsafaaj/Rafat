@@ -28,34 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            labelWelcome = new Label();
+            labelCompnayName = new Label();
             SuspendLayout();
             // 
-            // label1
+            // labelWelcome
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Location = new Point(460, 285);
-            label1.Name = "label1";
-            label1.Size = new Size(143, 37);
-            label1.TabIndex = 0;
-            label1.Text = "الصفحة الرئيسة";
+            labelWelcome.Anchor = AnchorStyles.None;
+            labelWelcome.Location = new Point(372, 321);
+            labelWelcome.Name = "labelWelcome";
+            labelWelcome.Size = new Size(363, 37);
+            labelWelcome.TabIndex = 0;
+            labelWelcome.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelCompnayName
+            // 
+            labelCompnayName.Anchor = AnchorStyles.None;
+            labelCompnayName.Font = new Font("Cairo", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCompnayName.Location = new Point(301, 246);
+            labelCompnayName.Name = "labelCompnayName";
+            labelCompnayName.Size = new Size(504, 75);
+            labelCompnayName.TabIndex = 0;
+            labelCompnayName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // HomeUserControl
             // 
             AutoScaleDimensions = new SizeF(11F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
+            Controls.Add(labelCompnayName);
+            Controls.Add(labelWelcome);
             Font = new Font("Cairo", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 6, 4, 6);
             Name = "HomeUserControl";
             Size = new Size(1062, 606);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label labelWelcome;
+        private Label labelCompnayName;
     }
 }
