@@ -1,5 +1,48 @@
-##Use Below query to add default user
+Here's the updated README file with the specific location of the connection string:
 
+---
+
+# Employee Management Software
+
+This repository contains the official project for the Employee Management Software development course. The project is developed using the following technologies:
+
+- .NET 7
+- C#
+- Windows Forms
+- SQL Server
+- Entity Framework
+
+## Project Overview
+
+The Employee Management Software is designed to manage employee records efficiently. The project properties are not fully completed, and it is the responsibility of the trainees or course followers to complete the functionalities.
+
+## Getting Started
+
+### Prerequisites
+
+- Visual Studio 2022 or later
+- .NET 7 SDK
+- SQL Server
+- Entity Framework Core
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/engsafaaj/Rafat.git
+   cd Rafat
+   ```
+
+2. Update the connection string in `Rafat.Data` within the `DBContext` file to match your SQL Server configuration.
+
+3. Apply migrations to set up the database:
+   ```sh
+   dotnet ef database update
+   ```
+
+4. Execute the following query to add the default user:
+
+```sql
 USE [RafatDB]
 GO
 SET IDENTITY_INSERT [dbo].[Users] ON 
@@ -46,3 +89,16 @@ INSERT [dbo].[Roles] ([Id], [Key], [Value], [UsersId]) VALUES (34, N'checkBoxSys
 GO
 SET IDENTITY_INSERT [dbo].[Roles] OFF
 GO
+```
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+Feel free to customize the content further to better match your project details.
