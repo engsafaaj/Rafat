@@ -1,6 +1,4 @@
-Here's the updated README file with the specific location of the connection string:
 
----
 
 # Employee Management Software
 
