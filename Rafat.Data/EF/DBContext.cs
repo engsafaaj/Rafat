@@ -13,11 +13,11 @@ namespace Rafat.Data.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           // string conString = @"Server=.\SQLEXPRESS;Database=RafatDB;Encrypt=false;Trusted_Connection=True;";
-            string conString = ConString.ConStringValue;
+            string conString = @"Server=.\SQLEXPRESS;Database=RafatDB;Encrypt=false;Trusted_Connection=True;";
+          //  string conString = ConString.ConStringValue;
 
 
-            optionsBuilder.UseSqlServer(ConString.ConStringValue);
+            optionsBuilder.UseSqlServer(conString);
         }
 
 

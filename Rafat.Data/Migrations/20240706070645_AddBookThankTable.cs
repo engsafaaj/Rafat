@@ -33,7 +33,7 @@ namespace Rafat.Data.Migrations
                         column: x => x.EmployeesId,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.SetDefault);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
